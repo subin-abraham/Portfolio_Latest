@@ -5,7 +5,7 @@ const Experience = () => {
   const workExperience = [
     {
       title: 'Front-End Engineer',
-      company: 'Polus Solutions',
+      company: 'Tech Company (Undisclosed)',
       location: 'Trivandrum, India',
       period: '2022 - Present',
       description:
@@ -18,7 +18,7 @@ const Experience = () => {
     },
     {
       title: 'Front-End Intern',
-      company: 'Luminar Technolab',
+      company: 'Tech Company (Undisclosed)',
       location: 'Kochi, India',
       period: '2021 - 2022',
       description:
