@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Briefcase, GraduationCap, MapPin, Calendar } from 'lucide-react';
 
@@ -9,24 +8,26 @@ const Experience = () => {
       company: 'Polus Solutions',
       location: 'Trivandrum, India',
       period: '2022 - Present',
-      description: 'Leading frontend development for enterprise SaaS applications using React, TypeScript, and modern web technologies.',
+      description:
+        'Leading frontend development for enterprise SaaS applications using React, TypeScript, and modern web technologies.',
       achievements: [
         'Improved application performance by 40%',
         'Led team of 4 developers',
-        'Implemented CI/CD pipelines'
-      ]
+        'Implemented CI/CD pipelines',
+      ],
     },
     {
       title: 'Front-End Intern',
       company: 'Luminar Technolab',
       location: 'Kochi, India',
       period: '2021 - 2022',
-      description: 'Developed responsive web applications and collaborated with design teams to create pixel-perfect user interfaces.',
+      description:
+        'Developed responsive web applications and collaborated with design teams to create pixel-perfect user interfaces.',
       achievements: [
         'Built 15+ responsive websites',
         'Reduced load times by 30%',
-        'Mentored junior developers'
-      ]
+        'Mentored junior developers',
+      ],
     },
   ];
 
@@ -37,12 +38,15 @@ const Experience = () => {
       location: 'Trivandrum, India',
       period: '2018 - 2022',
       grade: 'CGPA: 6.9/10',
-      description: 'Strong foundation in electronics, programming, and problem-solving skills.'
-    }
+      description: 'Strong foundation in electronics, programming, and problem-solving skills.',
+    },
   ];
 
   return (
-    <section id="experience" className="py-16 bg-gray-50">
+    <section
+      id="experience"
+      className="py-16 bg-gray-50 overflow-x-hidden"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12" data-aos="fade-up">
@@ -64,15 +68,22 @@ const Experience = () => {
               <div className="bg-accent/10 p-3 rounded-full">
                 <Briefcase className="w-6 h-6 text-accent" />
               </div>
-              <h3 className="font-heading text-2xl font-semibold text-navy">Work Experience</h3>
+              <h3 className="font-heading text-2xl font-semibold text-navy">
+                Work Experience
+              </h3>
             </div>
 
             <div className="space-y-6">
               {workExperience.map((job, index) => (
-                <div key={index} className="bg-white p-6 rounded-lg shadow-md border-l-4 border-accent">
+                <div
+                  key={index}
+                  className="bg-white p-6 rounded-lg shadow-md border-l-4 border-accent"
+                >
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3">
                     <div>
-                      <h4 className="font-heading text-xl font-semibold text-navy">{job.title}</h4>
+                      <h4 className="font-heading text-xl font-semibold text-navy">
+                        {job.title}
+                      </h4>
                       <p className="text-accent font-medium">{job.company}</p>
                     </div>
                     <div className="text-sm text-gray-500 mt-2 sm:mt-0 sm:text-right">
@@ -103,14 +114,21 @@ const Experience = () => {
               <div className="bg-accent/10 p-3 rounded-full">
                 <GraduationCap className="w-6 h-6 text-accent" />
               </div>
-              <h3 className="font-heading text-2xl font-semibold text-navy">Education</h3>
+              <h3 className="font-heading text-2xl font-semibold text-navy">
+                Education
+              </h3>
             </div>
 
             <div className="space-y-6">
               {education.map((edu, index) => (
-                <div key={index} className="bg-white p-6 rounded-lg shadow-md border-l-4 border-accent">
+                <div
+                  key={index}
+                  className="bg-white p-6 rounded-lg shadow-md border-l-4 border-accent"
+                >
                   <div className="mb-3">
-                    <h4 className="font-heading text-xl font-semibold text-navy mb-2">{edu.degree}</h4>
+                    <h4 className="font-heading text-xl font-semibold text-navy mb-2">
+                      {edu.degree}
+                    </h4>
                     <p className="text-accent font-medium">{edu.institution}</p>
                   </div>
                   <div className="text-sm text-gray-500 mb-3">
@@ -131,7 +149,9 @@ const Experience = () => {
 
             {/* Certifications */}
             <div className="mt-8 bg-white p-6 rounded-lg shadow-md">
-              <h4 className="font-heading text-lg font-semibold text-navy mb-4">Certifications & Courses</h4>
+              <h4 className="font-heading text-lg font-semibold text-navy mb-4">
+                Certifications & Courses
+              </h4>
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
                   <span className="text-gray-700">React Developer Certification</span>
