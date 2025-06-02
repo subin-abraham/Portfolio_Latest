@@ -42,11 +42,23 @@ const Experience = () => {
     },
   ];
 
+  const certifications = [
+    {
+      title: 'React Developer Certification',
+      year: '2023',
+    },
+    {
+      title: 'Advanced JavaScript & ES6+',
+      year: '2022',
+    },
+    {
+      title: 'Responsive Web Design',
+      year: '2021',
+    },
+  ];
+
   return (
-    <section
-      id="experience"
-      className="py-16 bg-gray-50 overflow-x-hidden"
-    >
+    <section id="experience" className="py-16 bg-gray-50 overflow-x-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12" data-aos="fade-up">
@@ -148,25 +160,28 @@ const Experience = () => {
             </div>
 
             {/* Certifications */}
-            <div className="mt-8 bg-white p-6 rounded-lg shadow-md">
-              <h4 className="font-heading text-lg font-semibold text-navy mb-4">
-                Certifications & Courses
-              </h4>
-              <div className="space-y-3">
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-700">React Developer Certification</span>
-                  <span className="text-sm text-gray-500">2023</span>
+            {/* <div className="mt-8 space-y-6">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="bg-accent/10 p-3 rounded-full">
+                  <GraduationCap className="w-6 h-6 text-accent" />
                 </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-700">Advanced JavaScript & ES6+</span>
-                  <span className="text-sm text-gray-500">2022</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-700">Responsive Web Design</span>
-                  <span className="text-sm text-gray-500">2021</span>
-                </div>
+                <h4 className="font-heading text-2xl font-semibold text-navy">
+                  Certifications & Courses
+                </h4>
               </div>
-            </div>
+
+              {certifications.map((cert, idx) => (
+                <div
+                  key={idx}
+                  className="bg-white p-6 rounded-lg shadow-md border-l-4 border-accent"
+                >
+                  <div className="flex justify-between items-center">
+                    <h5 className="text-navy font-semibold text-lg">{cert.title}</h5>
+                    <span className="text-sm text-gray-500">{cert.year}</span>
+                  </div>
+                </div>
+              ))}
+            </div> */}
           </div>
         </div>
       </div>

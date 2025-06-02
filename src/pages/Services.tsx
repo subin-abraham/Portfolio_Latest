@@ -4,8 +4,10 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import BackToTop from '@/components/BackToTop';
 import { Code, Smartphone, Zap, Palette, Settings, Globe } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const ServicesPage = () => {
+  const navigate = useNavigate();
   const services = [
     {
       icon: Code,
@@ -48,7 +50,7 @@ const ServicesPage = () => {
   return (
     <div className="min-h-screen">
       <Header />
-      
+
       {/* Hero Section */}
       <section className="pt-20 py-16 bg-gradient-to-br from-navy to-gray-800 text-white">
         <div className="max-w-7xl mx-auto px-6 text-center">
@@ -76,15 +78,15 @@ const ServicesPage = () => {
                   <div className="bg-accent/10 w-16 h-16 rounded-lg flex items-center justify-center mb-6 group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
                     <IconComponent className="w-8 h-8 text-accent group-hover:text-white transition-colors duration-300" />
                   </div>
-                  
+
                   <h3 className="font-heading text-xl font-semibold text-navy mb-4 group-hover:text-accent transition-colors duration-300">
                     {service.title}
                   </h3>
-                  
+
                   <p className="text-gray-600 mb-6 leading-relaxed">
                     {service.description}
                   </p>
-                  
+
                   <ul className="space-y-2">
                     {service.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-center text-sm text-gray-600">
@@ -93,10 +95,10 @@ const ServicesPage = () => {
                       </li>
                     ))}
                   </ul>
-                  
+
                   <div className="mt-6 pt-6 border-t border-gray-200">
                     <button
-                      onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                      onClick={() => navigate('/#contact')}
                       className="text-accent font-medium hover:text-accent-hover transition-colors duration-300 group-hover:underline"
                     >
                       Learn More →
@@ -112,7 +114,7 @@ const ServicesPage = () => {
             <h3 className="font-heading text-3xl font-bold text-navy text-center mb-12">
               My Development <span className="text-accent">Process</span>
             </h3>
-            
+
             <div className="grid md:grid-cols-4 gap-8">
               {[
                 { step: '01', title: 'Discovery', description: 'Understanding your requirements, goals, and target audience' },
@@ -137,11 +139,11 @@ const ServicesPage = () => {
               Ready to Start Your Project?
             </h3>
             <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-              Let's discuss your requirements and create something amazing together. 
+              Let's discuss your requirements and create something amazing together.
               I'm here to help bring your digital vision to life.
             </p>
             <button
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => navigate('/#contact')}
               className="bg-accent text-white px-8 py-3 rounded-lg font-heading font-medium hover:bg-accent-hover transition-all duration-300 transform hover:scale-105"
             >
               Get Started Today
@@ -149,7 +151,7 @@ const ServicesPage = () => {
           </div>
         </div>
       </section>
-      
+
       <Footer />
       <BackToTop />
     </div>

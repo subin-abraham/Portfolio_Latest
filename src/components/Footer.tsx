@@ -34,7 +34,7 @@ const Footer = () => {
             </p>
             <div className="flex gap-4">
               <a
-                href="https://linkedin.com/in/alexchen"
+                href="https://linkedin.com/in/subinabraham63"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-white/10 p-3 rounded-full hover:bg-accent transition-all duration-300 hover:scale-110"
@@ -43,7 +43,7 @@ const Footer = () => {
                 <Linkedin className="w-5 h-5" />
               </a>
               <a
-                href="https://github.com/alexchen"
+                href="https://github.com/subin-abraham"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-white/10 p-3 rounded-full hover:bg-accent transition-all duration-300 hover:scale-110"
@@ -52,7 +52,7 @@ const Footer = () => {
                 <Github className="w-5 h-5" />
               </a>
               <a
-                href="mailto:alex.chen.dev@gmail.com"
+                href="mailto:subinabraham63@gmail.com"
                 className="bg-white/10 p-3 rounded-full hover:bg-accent transition-all duration-300 hover:scale-110"
                 aria-label="Email Contact"
               >
@@ -108,18 +108,18 @@ const Footer = () => {
 
         {/* Bottom Section */}
         <div className="border-t border-gray-600 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="flex flex-col md:flex-row justify-center items-center gap-4">
             <div className="text-center md:text-left">
-              <p className="text-gray-300">
+              <p className="text-gray-300 text-center">
                 © {currentYear} Subin Abraham. All Rights Reserved.
               </p>
-              <p className="text-sm text-gray-400 mt-1">
+              <p className="text-sm text-gray-400 mt-1 text-center">
                 Powered by React, TypeScript & Tailwind CSS. Built for performance and accessibility.
               </p>
             </div>
 
             {/* Additional Links */}
-            <div className="flex items-center gap-6 text-sm">
+            {/* <div className="flex items-center gap-6 text-sm">
               <button
                 onClick={() => scrollToSection('about')}
                 className="text-gray-400 hover:text-accent transition-colors duration-300"
@@ -154,7 +154,7 @@ const Footer = () => {
               >
                 Contact
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
 

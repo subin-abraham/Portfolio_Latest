@@ -1,7 +1,7 @@
 import React from 'react';
 import { X } from 'lucide-react';
 
-const WarningModal = ({ visible, onClose }) => {
+const WarningModal = ({ visible, onClose, title, message, buttonLabel = 'Close', icon }) => {
   if (!visible) return null;
 
   return (
@@ -17,29 +17,31 @@ const WarningModal = ({ visible, onClose }) => {
 
         <div className="flex flex-col items-center text-yellow-800">
           <div className="mb-4">
-            <svg
-              className="w-12 h-12"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M12 8v4m0 4h.01M4.93 4.93a10 10 0 0114.14 0 10 10 0 010 14.14 10 10 0 01-14.14 0 10 10 0 010-14.14z"
-              />
-            </svg>
+            {icon ? (
+              icon
+            ) : (
+              <svg
+                className="w-12 h-12"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M12 8v4m0 4h.01M4.93 4.93a10 10 0 0114.14 0 10 10 0 010 14.14 10 10 0 01-14.14 0 10 10 0 010-14.14z"
+                />
+              </svg>
+            )}
           </div>
-          <h2 className="text-lg font-semibold mb-2">Warning</h2>
-          <p className="text-center">
-            Due to project requirements, we cannot show more details.
-          </p>
+          <h2 className="text-lg font-semibold mb-2">{title}</h2>
+          <p className="text-center">{message}</p>
           <button
             onClick={onClose}
             className="mt-6 bg-yellow-400 text-yellow-900 px-4 py-2 rounded-md hover:bg-yellow-500 transition"
           >
-            Close
+            {buttonLabel}
           </button>
         </div>
       </div>

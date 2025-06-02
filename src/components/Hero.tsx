@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { ChevronDown, ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const initialCode = `const developer = {
   name: 'Subin Abraham',
@@ -8,6 +9,7 @@ const initialCode = `const developer = {
 }`;
 
 const Hero = () => {
+  const navigate = useNavigate()
   const [code, setCode] = useState(initialCode);
   const codeRef = useRef<HTMLDivElement>(null);
 
@@ -55,12 +57,12 @@ const Hero = () => {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
               <button
-                onClick={() => scrollToSection('portfolio')}
-                className="btn-primary group flex items-center justify-center"
-              >
-                View My Work
-                <ArrowRight className="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
-              </button>
+      onClick={() => navigate("/portfolio")}
+      className="btn-primary group flex items-center justify-center"
+    >
+      View My Work
+      <ArrowRight className="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
+    </button>
               
               <button
                 onClick={() => scrollToSection('contact')}

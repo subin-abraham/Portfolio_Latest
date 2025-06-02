@@ -5,8 +5,10 @@ import Footer from '@/components/Footer';
 import BackToTop from '@/components/BackToTop';
 import { ExternalLink, Github, ArrowRight } from 'lucide-react';
 import WarningModal from '@/components/WarningModal';
+import { useNavigate } from 'react-router-dom';
 
 const PortfolioPage = () => {
+    const navigate = useNavigate();
   // State to control the warning modal
   const [showWarning, setShowWarning] = useState(false);
 
@@ -141,7 +143,27 @@ const PortfolioPage = () => {
       <Header />
 
       {/* Warning modal */}
-      <WarningModal visible={showWarning} onClose={() => setShowWarning(false)} />
+      <WarningModal
+        visible={showWarning}
+        onClose={() => setShowWarning(false)}
+        title="Sorry"
+        message="Due to project requirements, we cannot show more details."
+        icon={
+          <svg
+            className="w-12 h-12"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M12 8v4m0 4h.01M4.93 4.93a10 10 0 0114.14 0 10 10 0 010 14.14 10 10 0 01-14.14 0 10 10 0 010-14.14z"
+            />
+          </svg>
+        }
+      />
 
       {/* Hero Section */}
       <section className="pt-20 py-16 bg-gradient-to-br from-navy to-gray-800 text-white">
@@ -305,11 +327,7 @@ const PortfolioPage = () => {
               Interested in seeing more of my work or discussing a project?
             </p>
             <button
-              onClick={() =>
-                document.getElementById('contact')?.scrollIntoView({
-                  behavior: 'smooth',
-                })
-              }
+              onClick={() => navigate('/#contact')}
               className="bg-accent text-white px-8 py-3 rounded-lg font-heading font-medium hover:bg-accent-hover transition-all duration-300 transform hover:scale-105 group"
             >
               Get In Touch

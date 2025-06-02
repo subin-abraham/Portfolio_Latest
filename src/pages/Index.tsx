@@ -1,5 +1,5 @@
-
 import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Experience from '@/components/Experience';
@@ -16,6 +16,8 @@ declare global {
 }
 
 const Index = () => {
+  const location = useLocation();
+
   useEffect(() => {
     // Initialize AOS (Animate On Scroll)
     if (window.AOS) {
@@ -35,6 +37,15 @@ const Index = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (location.hash === '#contact') {
+      const el = document.getElementById('contact');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location]);
+
   return (
     <div className="min-h-screen">
       <Header />
@@ -42,7 +53,9 @@ const Index = () => {
       <Experience />
       <Skills />
       <Testimonials />
-      <ContactForm/>
+      <section id="contact">
+        <ContactForm />
+      </section>
       <Footer />
       <BackToTop />
     </div>

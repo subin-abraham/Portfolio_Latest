@@ -38,7 +38,7 @@ useEffect(() => {
 
   const tools = [
     'React', 'Angular', 'Next.js', 'Redux', 'Tailwind CSS', 
-    'Git', 'Figma', 'Postman', 'Bootstrap', 'Next JS'
+    'Git', 'Figma', 'Postman', 'Bootstrap', ''
   ];
 
   return (

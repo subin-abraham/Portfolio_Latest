@@ -14,8 +14,10 @@ import {
   BookOpen,
   Lightbulb,
 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const AboutPage = () => {
+  const navigate = useNavigate();
   const highlights = [
     {
       icon: Code,
@@ -45,7 +47,7 @@ const AboutPage = () => {
 
   const timeline = [
     {
-      year: '2021',
+      year: '2022',
       title: 'B.Tech Graduation',
       description:
         'Completed Electronics & Communication Engineering and discovered a passion for software development.',
@@ -60,7 +62,7 @@ const AboutPage = () => {
       year: '2023',
       title: 'Portfolio & Experimentation',
       description:
-        'Built this portfolio to experiment with Next.js, Tailwind CSS, and refine front-end workflows.',
+        'Built this portfolio to experiment with Vite, Tailwind CSS, and refine front-end workflows.',
     },
     {
       year: '2024',
@@ -94,6 +96,37 @@ const AboutPage = () => {
       title: 'Balanced Mindset',
       description:
         'I value sustainable development practices and maintain a healthy work–life balance to stay sharp.',
+    },
+  ];
+
+  const skills = [
+    {
+      title: 'Front-End',
+      items: [
+        'JavaScript & TypeScript',
+        'Angular & React',
+        'Next.js & React.js',
+        'Bootstrap & Tailwind CSS',
+      ],
+    },
+    {
+      title: 'Back-End (Intermediate)',
+      items: [
+        'Node.js & Express',
+        'MongoDB & Mongoose',
+        'SQL (MySQL, PostgreSQL)',
+        'RESTful API Design',
+      ],
+    },
+    {
+      title: 'Tools & Workflow',
+      items: [
+        'Git & GitHub',
+        'Vite & Webpack',
+        'Figma & Adobe XD',
+        'Jest & Testing Library',
+        'Performance Optimization & Accessibility (WCAG)',
+      ],
     },
   ];
 
@@ -157,7 +190,7 @@ const AboutPage = () => {
 
                 <p>
                   Looking ahead, I’m actively enhancing my backend skills—<strong>Node.js, MongoDB,
-                  SQL</strong>—to evolve into a full-stack engineer who builds end-to-end solutions
+                    SQL</strong>—to evolve into a full-stack engineer who builds end-to-end solutions
                   that drive real impact.
                 </p>
               </div>
@@ -166,19 +199,17 @@ const AboutPage = () => {
               <div className="grid grid-cols-2 gap-4 mb-8">
                 <div className="flex items-center text-gray-600">
                   <MapPin className="w-5 h-5 text-accent mr-2" />
-                  <span>Bangalore, India</span>
+                  <span>Kerala, India</span>
                 </div>
                 <div className="flex items-center text-gray-600">
                   <Calendar className="w-5 h-5 text-accent mr-2" />
-                  <span>3+ Years in Front-End</span>
+                  <span>2+ Years in Front-End</span>
                 </div>
               </div>
 
               {/* CTA Button */}
               <button
-                onClick={() =>
-                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
-                }
+                onClick={() => navigate('/#contact')}
                 className="bg-accent text-white px-8 py-3 rounded-lg font-heading font-medium hover:bg-accent-hover transition-all duration-300 transform hover:scale-105"
               >
                 Let's Work Together
@@ -212,7 +243,7 @@ const AboutPage = () => {
       </section>
 
       {/* Timeline Section */}
-<section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="font-heading text-3xl font-bold text-navy mb-4">
@@ -227,55 +258,46 @@ const AboutPage = () => {
             {/* Vertical timeline line */}
             <div className="absolute left-1/2 transform -translate-x-0.5 w-0.5 h-full bg-accent/20"></div>
 
-            <div className="space-y-12">
+            <div className="space-y-16 relative">
               {timeline.map((item, index) => {
                 const isLeft = index % 2 === 0;
-
                 return (
-                  <div key={index} className="relative flex items-center">
-                    {isLeft ? (
-                      <>
-                        {/* Left-side card */}
-                        <div className="w-1/2 pr-8 text-right">
-                          <div className="bg-white p-6 rounded-lg shadow-md inline-block">
-                            <div className="text-accent font-bold text-lg mb-2">{item.year}</div>
-                            <h3 className="font-heading text-xl font-semibold text-navy mb-2">
-                              {item.title}
-                            </h3>
-                            <p className="text-gray-600">{item.description}</p>
-                          </div>
+                  <div
+                    key={index}
+                    className="relative flex flex-col md:flex-row items-center md:items-stretch min-h-[200px]"
+                  >
+                    {/* Timeline dot */}
+                    <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-5 h-5 bg-accent rounded-full border-4 border-white shadow-md z-10"></div>
+
+                    {/* Left Side */}
+                    <div className={`md:w-1/2 px-4 ${isLeft ? 'order-1 text-right' : 'order-2 md:order-1'}`}>
+                      {isLeft && (
+                        <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-md ml-auto">
+                          <div className="text-accent font-bold text-lg mb-2">{item.year}</div>
+                          <h3 className="font-heading text-xl font-semibold text-navy mb-2">{item.title}</h3>
+                          <p className="text-gray-600">{item.description}</p>
                         </div>
+                      )}
+                    </div>
 
-                        {/* Center dot */}
-                        <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-accent rounded-full border-4 border-white shadow-md"></div>
+                    {/* Spacer for dot */}
+                    <div className="hidden md:flex w-0.5 bg-accent/20 h-full absolute left-1/2 transform -translate-x-1/2 z-0"></div>
 
-                        {/* Empty right half */}
-                        <div className="w-1/2"></div>
-                      </>
-                    ) : (
-                      <>
-                        {/* Empty left half */}
-                        <div className="w-1/2"></div>
-
-                        {/* Center dot */}
-                        <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-accent rounded-full border-4 border-white shadow-md"></div>
-
-                        {/* Right-side card */}
-                        <div className="w-1/2 pl-8">
-                          <div className="bg-white p-6 rounded-lg shadow-md inline-block">
-                            <div className="text-accent font-bold text-lg mb-2">{item.year}</div>
-                            <h3 className="font-heading text-xl font-semibold text-navy mb-2">
-                              {item.title}
-                            </h3>
-                            <p className="text-gray-600">{item.description}</p>
-                          </div>
+                    {/* Right Side */}
+                    <div className={`md:w-1/2 px-4 ${isLeft ? 'order-2' : 'order-1 text-left md:order-2'}`}>
+                      {!isLeft && (
+                        <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-md mr-auto">
+                          <div className="text-accent font-bold text-lg mb-2">{item.year}</div>
+                          <h3 className="font-heading text-xl font-semibold text-navy mb-2">{item.title}</h3>
+                          <p className="text-gray-600">{item.description}</p>
                         </div>
-                      </>
-                    )}
+                      )}
+                    </div>
                   </div>
                 );
               })}
             </div>
+
           </div>
         </div>
       </section>
@@ -312,46 +334,34 @@ const AboutPage = () => {
       </section>
 
       {/* Skills Summary */}
-      <section className="py-16 bg-navy text-white">
+      <section className="py-20 bg-white text-black">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="font-heading text-3xl font-bold mb-8">
+          <h2 className="font-heading text-3xl font-bold mb-12">
             Technical <span className="text-accent">Expertise</span>
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div>
-              <h3 className="font-heading text-xl font-semibold mb-4">Front-End</h3>
-              <div className="space-y-2 text-gray-300">
-                <p>JavaScript & TypeScript</p>
-                <p>Angular & React</p>
-                <p>Next.js & React.js</p>
-                <p>Bootstrap & Tailwind CSS</p>
+            {skills.map((card, idx) => (
+              <div
+                key={idx}
+                className="bg-white border border-gray-100 rounded-xl shadow-md p-6 text-left hover:shadow-lg transition-shadow duration-300"
+              >
+                <h3 className="font-heading text-xl font-semibold text-navy mb-4">{card.title}</h3>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  {card.items.map((item, i) => (
+                    <li key={i} className="flex items-start">
+                      <span className="w-2 h-2 mt-2 mr-3 rounded-full bg-accent flex-shrink-0"></span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </div>
-
-            <div>
-              <h3 className="font-heading text-xl font-semibold mb-4">Back-End (Intermediate)</h3>
-              <div className="space-y-2 text-gray-300">
-                <p>Node.js & Express</p>
-                <p>MongoDB & Mongoose</p>
-                <p>SQL (MySQL, PostgreSQL)</p>
-                <p>RESTful API Design</p>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="font-heading text-xl font-semibold mb-4">Tools & Workflow</h3>
-              <div className="space-y-2 text-gray-300">
-                <p>Git & GitHub</p>
-                <p>Vite & Webpack</p>
-                <p>Figma & Adobe XD</p>
-                <p>Jest & Testing Library</p>
-                <p>Performance Optimization & Accessibility (WCAG)</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
+
+
 
       <Footer />
       <BackToTop />

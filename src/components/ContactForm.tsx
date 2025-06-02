@@ -204,37 +204,36 @@ const ContactForm = () => {
             </form>
           </div>
 
-          {/* Contact Info */}
-          <div className="space-y-8">
-            <div>
-              <h3 className="font-heading text-2xl font-semibold text-navy mb-6">Let's Connect</h3>
-              <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                I'm always open to discussing new projects, creative ideas, or opportunities.
-              </p>
-              <div className="flex flex-col gap-6 text-gray-700">
-                <div className="flex items-center gap-3">
-                  <Mail className="text-accent" />
-                  <a href="mailto:hello@example.com" className="hover:text-accent transition">hello@example.com</a>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Phone className="text-accent" />
-                  <a href="tel:+1234567890" className="hover:text-accent transition">+1 234 567 890</a>
-                </div>
-                <div className="flex items-center gap-3">
-                  <MapPin className="text-accent" />
-                  <address className="not-italic">123 Main Street, Anytown, USA</address>
-                </div>
+          {/* Contact Info Card */}
+          <div className="bg-white rounded-2xl shadow-xl p-8 space-y-8">
+            <h3 className="font-heading text-2xl font-semibold text-navy mb-6">Let's Connect</h3>
+            <p className="text-gray-600 text-lg leading-relaxed mb-8">
+              I'm always open to discussing new projects, creative ideas, or opportunities.
+            </p>
+            <div className="flex flex-col gap-6 text-gray-700">
+              <div className="flex items-center gap-3">
+                <Mail className="text-accent" />
+                <a href="mailto:subinabraham63@gmail.com" className="hover:text-accent transition">subinabraham63@gmail.com</a>
               </div>
-              <div className="flex space-x-6 mt-8 text-gray-600">
-                <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition">
-                  <Github className="w-6 h-6" />
-                </a>
-                <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition">
-                  <Linkedin className="w-6 h-6" />
-                </a>
+              <div className="flex items-center gap-3">
+                <Phone className="text-accent" />
+                <a href="tel:+917356211346" className="hover:text-accent transition">+91 7356211346</a>
+              </div>
+              <div className="flex items-center gap-3">
+                <MapPin className="text-accent" />
+                <address className="not-italic">Kollam, Kerala, India</address>
               </div>
             </div>
+            {/* <div className="flex space-x-6 mt-8 text-gray-600">
+              <a href="https://github.com/subin-abraham" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition">
+                <Github className="w-6 h-6" />
+              </a>
+              <a href="https://linkedin.com/in/subinabraham63" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition">
+                <Linkedin className="w-6 h-6" />
+              </a>
+            </div> */}
           </div>
+
         </div>
       </div>
     </section>
