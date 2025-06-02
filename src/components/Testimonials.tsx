@@ -10,8 +10,8 @@ const Testimonials = () => {
     {
       id: 1,
       name: 'Portfolio Website',
-      position: 'Client: Anna Williams',
-      company: '',
+      position: 'Anna Williams',
+      company: 'Freelance Project',
       image: 'https://randomuser.me/api/portraits/women/65.jpg',
       rating: 5,
       text: 'Built a sleek, responsive portfolio website showcasing Anna’s photography with a dynamic gallery and contact form.'
@@ -19,8 +19,8 @@ const Testimonials = () => {
     {
       id: 2,
       name: 'E-commerce Store',
-      position: 'Client: Green Leaf Organics',
-      company: '',
+      position: 'James Miller',
+      company: 'Freelance Project',
       image: 'https://randomuser.me/api/portraits/men/41.jpg',
       rating: 5,
       text: 'Developed a custom online store with product filtering, secure checkout, and mobile optimization.'
@@ -28,8 +28,8 @@ const Testimonials = () => {
     {
       id: 3,
       name: 'Blog Platform',
-      position: 'Client: TechTalk Blog',
-      company: '',
+      position: 'Anne White',
+      company: 'Freelance Project',
       image: 'https://randomuser.me/api/portraits/women/52.jpg',
       rating: 5,
       text: 'Created a content management system with markdown support, SEO optimization, and fast page loads.'
@@ -37,8 +37,8 @@ const Testimonials = () => {
     {
       id: 4,
       name: 'Landing Page',
-      position: 'Client: FinTech Innovators',
-      company: '',
+      position: 'Michael Johnson',
+      company: 'Freelance Project',
       image: 'https://randomuser.me/api/portraits/men/48.jpg',
       rating: 5,
       text: 'Designed and coded a high-conversion landing page with animations and clear CTAs to attract investors.'
@@ -46,13 +46,14 @@ const Testimonials = () => {
     {
       id: 5,
       name: 'CRM Dashboard',
-      position: 'Client: SalesPro Ltd.',
-      company: '',
+      position: 'David Thompson',
+      company: 'Freelance Project',
       image: 'https://randomuser.me/api/portraits/men/59.jpg',
       rating: 5,
       text: 'Built a dashboard with real-time data visualization and user-friendly interface to manage sales pipelines.'
     }
   ];
+
 
 
   // Auto-advance slides
@@ -165,8 +166,8 @@ const Testimonials = () => {
                 key={index}
                 onClick={() => goToSlide(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide
-                    ? 'bg-accent scale-125'
-                    : 'bg-gray-300 hover:bg-gray-400'
+                  ? 'bg-accent scale-125'
+                  : 'bg-gray-300 hover:bg-gray-400'
                   }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />

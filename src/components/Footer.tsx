@@ -32,7 +32,7 @@ const Footer = () => {
               Front-End Engineer & Freelance Developer specializing in creating exceptional 
               digital experiences with modern web technologies.
             </p>
-            <div className="flex gap-4">
+            {/* <div className="flex gap-4">
               <a
                 href="https://linkedin.com/in/subinabraham63"
                 target="_blank"
@@ -58,7 +58,7 @@ const Footer = () => {
               >
                 <Mail className="w-5 h-5" />
               </a>
-            </div>
+            </div> */}
           </div>
 
           {/* Quick Links */}
