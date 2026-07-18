@@ -65,18 +65,22 @@ const About = () => {
               {journey.map(({ year, content }, idx) => (
                 <div
                   key={idx}
-                  className="grid grid-cols-2 gap-6 items-center"
+                  className="flex flex-col md:grid md:grid-cols-2 gap-6 items-center relative"
                 >
-                  {/* Left Card */}
-                  <div className="bg-gray-50 p-6 rounded-lg shadow-md w-full max-w-[320px] mx-auto">
-                    <h4 className="font-semibold text-lg text-accent mb-2">{year}</h4>
-                    <p className="text-gray-700">{content}</p>
+                  {/* Left Column (Visible on even indexes, acts as spacer on odd indexes) */}
+                  <div className={`w-full max-w-[320px] mx-auto md:ml-auto md:mr-0 ${idx % 2 === 0 ? 'block' : 'hidden md:block md:invisible'}`}>
+                    <div className="bg-gray-50 p-6 rounded-lg shadow-md text-left md:text-right">
+                      <h4 className="font-semibold text-lg text-accent mb-2">{year}</h4>
+                      <p className="text-gray-300 text-sm leading-relaxed">{content}</p>
+                    </div>
                   </div>
 
-                  {/* Right Card */}
-                  <div className="bg-gray-50 p-6 rounded-lg shadow-md w-full max-w-[320px] mx-auto">
-                    <h4 className="font-semibold text-lg text-accent mb-2">{year}</h4>
-                    <p className="text-gray-700">{content}</p>
+                  {/* Right Column (Visible on odd indexes, acts as spacer on even indexes) */}
+                  <div className={`w-full max-w-[320px] mx-auto md:mr-auto md:ml-0 ${idx % 2 !== 0 ? 'block' : 'hidden md:block md:invisible'}`}>
+                    <div className="bg-gray-50 p-6 rounded-lg shadow-md">
+                      <h4 className="font-semibold text-lg text-accent mb-2">{year}</h4>
+                      <p className="text-gray-300 text-sm leading-relaxed">{content}</p>
+                    </div>
                   </div>
                 </div>
               ))}
