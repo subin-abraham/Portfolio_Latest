@@ -1,13 +1,9 @@
 
 import React from 'react';
-import { Github, Linkedin, Mail, ArrowUp } from 'lucide-react';
+import { Github, Linkedin, Mail } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -158,14 +154,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Back to Top Button */}
-        <button
-          onClick={scrollToTop}
-          className="back-to-top visible"
-          aria-label="Back to top"
-        >
-          <ArrowUp className="w-6 h-6" />
-        </button>
       </div>
     </footer>
   );

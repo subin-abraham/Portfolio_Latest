@@ -62,7 +62,8 @@ export default {
 			},
 			fontFamily: {
 				'heading': ['Poppins', 'sans-serif'],
-				'body': ['Inter', 'sans-serif'],
+				'body': ['DM Sans', 'sans-serif'],
+				'display': ['Anton', 'Impact', 'sans-serif'],
 			},
 			transitionDuration: {
 				'1200': '1200ms',
@@ -74,6 +75,9 @@ export default {
 				'fill-left': 'fillLeft 0.3s ease-out',
 				'progress-fill': 'progressFill 1.2s ease-out',
 				'float': 'float 3s ease-in-out infinite',
+				'hero-rise': 'heroRise 0.9s ease-out both',
+				'hero-float': 'heroFloat 4.5s ease-in-out infinite',
+				'hero-draw': 'heroDraw 1.4s ease-out both',
 			},
 			keyframes: {
 				fadeIn: {
@@ -101,6 +105,18 @@ export default {
 				float: {
 					'0%, 100%': { transform: 'translateY(0px)' },
 					'50%': { transform: 'translateY(-10px)' }
+				},
+				heroRise: {
+					'0%': { opacity: '0', transform: 'translateY(24px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' }
+				},
+				heroFloat: {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-12px)' }
+				},
+				heroDraw: {
+					'0%': { opacity: '0', strokeDashoffset: '240' },
+					'100%': { opacity: '0.9', strokeDashoffset: '0' }
 				}
 			},
 			borderRadius: {

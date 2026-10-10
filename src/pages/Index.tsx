@@ -6,7 +6,6 @@ import Experience from '@/components/Experience';
 import Skills from '@/components/Skills';
 import Testimonials from '@/components/Testimonials';
 import Footer from '@/components/Footer';
-import BackToTop from '@/components/BackToTop';
 import ContactForm from '@/components/ContactForm';
 
 declare global {
@@ -57,7 +56,6 @@ const Index = () => {
         <ContactForm />
       </section>
       <Footer />
-      <BackToTop />
     </div>
   );
 };

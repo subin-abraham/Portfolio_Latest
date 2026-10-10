@@ -65,10 +65,14 @@ const Header = () => {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-navy/90 backdrop-blur-md'
+          isScrolled
+            ? 'bg-white/95 backdrop-blur-md shadow-lg'
+            : location.pathname === '/'
+              ? 'bg-transparent'
+              : 'bg-navy/90 backdrop-blur-md'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div className="mx-auto max-w-7xl px-4 pb-4 pt-[max(1.25rem,env(safe-area-inset-top))] sm:px-6 sm:pt-6 lg:px-8">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div 
