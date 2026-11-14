@@ -1,0 +1,147 @@
+.portfolio-section {
+  position: relative;
+  padding: clamp(3.5rem, 8vw, 6.5rem) clamp(1.25rem, 3.3vw, 3rem);
+  color: #f5f2ef;
+  background: linear-gradient(180deg, #0a0a0a 0%, #140c08 100%);
+}
+
+.portfolio-section--alt {
+  background: linear-gradient(180deg, #140c08 0%, #0f0a08 55%, #0a0a0a 100%);
+}
+
+.portfolio-section__eyebrow {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #f63e04;
+}
+
+.portfolio-section__title {
+  margin: 0 0 0.85rem;
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  color: #fff;
+}
+
+.portfolio-section__lede {
+  margin: 0 0 2rem;
+  max-width: 40rem;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: rgba(245, 242, 239, 0.72);
+}
+
+.portfolio-empty {
+  margin: 0;
+  font-size: 0.92rem;
+  color: rgba(245, 242, 239, 0.45);
+}
+
+.portfolio-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr));
+}
+
+.portfolio-card {
+  padding: 1.15rem 1.2rem;
+  border: 1px solid rgba(245, 242, 239, 0.1);
+  border-radius: 0.35rem;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.portfolio-card h3 {
+  margin: 0 0 0.4rem;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.portfolio-card p,
+.portfolio-card span {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: rgba(245, 242, 239, 0.7);
+}
+
+.portfolio-card a {
+  color: #ffd2c2;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.portfolio-stack {
+  display: grid;
+  gap: 1.35rem;
+}
+
+.portfolio-stack article {
+  display: grid;
+  gap: 0.35rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(245, 242, 239, 0.08);
+}
+
+.portfolio-stack article:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.portfolio-stack h3 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  color: #fff;
+}
+
+.portfolio-meta {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(245, 242, 239, 0.5);
+}
+
+.portfolio-quote {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: clamp(1.15rem, 2.4vw, 1.5rem);
+  line-height: 1.35;
+  color: #fff;
+}
+
+.portfolio-quote-author {
+  margin-top: 0.85rem;
+  font-size: 0.88rem;
+  color: rgba(245, 242, 239, 0.65);
+}
+
+.portfolio-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.portfolio-skill {
+  padding: 0.4rem 0.75rem;
+  border: 1px solid rgba(245, 242, 239, 0.14);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: rgba(245, 242, 239, 0.85);
+}
+
+.portfolio-contact-note {
+  margin: 0;
+  max-width: 28rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: rgba(245, 242, 239, 0.7);
+}

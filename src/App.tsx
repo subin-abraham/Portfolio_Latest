@@ -1,26 +1,57 @@
-import { Toaster } from "@/components/ui/toaster";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import About from "./pages/About";
-import Portfolio from "./pages/Portfolio";
-import Services from "./pages/Services";
-import Blog from "./pages/Blog";
-import NotFound from "./pages/NotFound";
+import { useEffect, useState } from "react";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import AboutSection from "@/components/AboutSection";
+import ExperienceEducationSection from "@/components/ExperienceEducationSection";
+import ExpertiseSection from "@/components/ExpertiseSection";
+import Header from "@/components/Header";
+import PortfolioSections from "@/components/PortfolioSections";
+import ToolsStrip from "@/components/ToolsStrip";
+import Home from "@/pages/Home";
+import { AdminRoutes } from "@/admin";
+import { fetchPortfolio, type PortfolioPayload } from "@/lib/portfolio";
 
-const App = () => (
-  <>
-    <Toaster />
+const PortfolioHome = () => {
+  const [portfolio, setPortfolio] = useState<PortfolioPayload | null>(null);
+
+  useEffect(() => {
+    let alive = true;
+    fetchPortfolio().then((data) => {
+      if (alive) setPortfolio(data);
+    });
+    return () => {
+      alive = false;
+    };
+  }, []);
+
+  return (
+    <main className="relative bg-[var(--hero-bottom)] font-body text-white">
+      <Header />
+      <Home profile={portfolio?.profile ?? null} />
+      <ToolsStrip tools={portfolio?.tools} />
+      <AboutSection
+        profile={portfolio?.profile ?? null}
+        stats={portfolio?.aboutStats ?? null}
+      />
+      <ExperienceEducationSection
+        experiences={portfolio?.experiences ?? null}
+        education={portfolio?.education ?? null}
+      />
+      <ExpertiseSection skills={portfolio?.skills ?? null} />
+      <PortfolioSections portfolio={portfolio} />
+    </main>
+  );
+};
+
+const App = () => {
+  return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Index />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/portfolio" element={<Portfolio />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="/" element={<PortfolioHome />} />
+        <Route path="/admin/*" element={<AdminRoutes />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
-  </>
-);
+  );
+};
 
 export default App;

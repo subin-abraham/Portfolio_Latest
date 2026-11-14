@@ -12,6 +12,13 @@ dist
 dist-ssr
 *.local
 
+# Secrets / env
+.env
+.env.local
+.env.*.local
+
+# Keep drizzle/ SQL + meta committed for migration history
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -22,3 +29,4 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+.neon

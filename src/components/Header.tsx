@@ -1,138 +1,67 @@
+import LibAtomBtn from "@/components/ui/lib-atom-btn";
 
-import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
-import { useNavigate, useLocation } from 'react-router-dom';
+type NavLink = {
+  label: string;
+  href: string;
+  active?: boolean;
+};
+
+const navLinks: NavLink[] = [
+  { label: "Home", href: "#home", active: true },
+  { label: "About", href: "#about" },
+  { label: "Work", href: "#work" },
+  { label: "Services", href: "#services" },
+  { label: "Experience", href: "#experience" },
+  { label: "Expertise", href: "#expertise" },
+  { label: "Contact", href: "#contact" },
+];
 
 const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Scroll to top when route changes
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location.pathname]);
-
-  const scrollToSection = (sectionId: string) => {
-    if (location.pathname !== '/') {
-      navigate('/');
-      setTimeout(() => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
-    } else {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-    setIsMobileMenuOpen(false);
-  };
-
-  const handleNavigation = (path: string) => {
-    navigate(path);
-    setIsMobileMenuOpen(false);
-  };
-
-  const isActive = (path: string) => {
-    return location.pathname === path;
-  };
-
-  const navItems = [
-    { label: 'Home', action: () => handleNavigation('/'), path: '/' },
-    { label: 'Experience', action: () => scrollToSection('experience'), path: null },
-    { label: 'Skills', action: () => scrollToSection('skills'), path: null },
-    { label: 'About', action: () => handleNavigation('/about'), path: '/about' },
-    { label: 'Projects', action: () => handleNavigation('/portfolio'), path: '/portfolio' },
-    { label: 'Services', action: () => handleNavigation('/services'), path: '/services' },
-    { label: 'Blog', action: () => handleNavigation('/blog'), path: '/blog' },
-    { label: 'Contact', action: () => scrollToSection('contact'), path: null },
-  ];
-
   return (
-    <>
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? 'bg-white/95 backdrop-blur-md shadow-lg'
-            : location.pathname === '/'
-              ? 'bg-transparent'
-              : 'bg-navy/90 backdrop-blur-md'
-        }`}
-      >
-        <div className="mx-auto max-w-7xl px-4 pb-4 pt-[max(1.25rem,env(safe-area-inset-top))] sm:px-6 sm:pt-6 lg:px-8">
-          <div className="flex items-center justify-between">
-            {/* Logo */}
-            <div 
-              className={`font-heading font-bold text-xl cursor-pointer ${
-                isScrolled ? 'text-navy' : 'text-white'
+    <header className="pointer-events-none absolute inset-x-0 top-0 z-50">
+      <div className="pointer-events-auto mx-auto flex h-[clamp(4rem,5.5vw,5.5rem)] w-full items-center justify-between px-[clamp(1.25rem,3.3vw,3rem)]">
+        <a
+          href="#home"
+          className="font-heading text-[clamp(1.125rem,1.25vw,2rem)] font-semibold tracking-tight text-white"
+        >
+          Subin<span className="align-super text-[0.55em]">®</span>
+        </a>
+
+        <nav
+          aria-label="Primary"
+          className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-7 md:flex lg:gap-9"
+        >
+          {navLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              className={`relative font-body text-[0.7rem] font-medium uppercase tracking-[0.18em] text-white/90 transition-colors hover:text-white lg:text-xs ${
+                link.active ? "text-white" : ""
               }`}
-              onClick={() => handleNavigation('/')}
             >
-              &lt;Subin/&gt;
-            </div>
-
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-8">
-              {navItems.map((item) => (
-                <button
-                  key={item.label}
-                  onClick={item.action}
-                  className={`nav-link transition-colors duration-300 relative ${
-                    isScrolled 
-                      ? `text-navy hover:text-accent ${isActive(item.path) ? 'text-accent' : ''}` 
-                      : `text-white hover:text-accent ${isActive(item.path) ? 'text-accent' : ''}`
-                  }`}
-                >
-                  {item.label}
-                  {isActive(item.path) && (
-                    <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent"></div>
-                  )}
-                </button>
-              ))}
-            </nav>
-
-            {/* Mobile Menu Button */}
-            <button
-              className={`md:hidden ${isScrolled ? 'text-navy' : 'text-white'}`}
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-        </div>
-      </header>
-
-      {/* Mobile Menu Overlay */}
-      <div className={`mobile-menu-overlay ${isMobileMenuOpen ? 'active' : ''}`}>
-        <div className="mobile-menu-items">
-          {navItems.map((item, index) => (
-            <button
-              key={item.label}
-              onClick={item.action}
-              className={`block text-white text-xl font-heading hover:text-accent transition-colors duration-300 ${
-                isActive(item.path) ? 'text-accent' : ''
-              }`}
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              {item.label}
-            </button>
+              {link.label}
+              {link.active ? (
+                <span
+                  aria-hidden
+                  className="absolute -bottom-1.5 left-0 h-px w-full bg-white"
+                />
+              ) : null}
+            </a>
           ))}
-        </div>
+        </nav>
+
+        <LibAtomBtn
+          variant="ghost"
+          tone="white"
+          size="icon"
+          aria-label="Open menu"
+          className="flex-col items-end justify-center gap-[7px] hover:bg-transparent active:scale-100"
+        >
+          <span aria-hidden className="block h-px w-7 bg-current" />
+          <span aria-hidden className="block h-px w-5 bg-current" />
+        </LibAtomBtn>
       </div>
-    </>
+    </header>
   );
 };
 
